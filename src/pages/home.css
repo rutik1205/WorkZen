@@ -1,0 +1,209 @@
+/* --- Hero --- */
+.wz-hero {
+  padding-block: var(--wz-space-10);
+  border-bottom: 1px solid var(--wz-border);
+}
+
+.wz-hero__inner {
+  max-width: 640px;
+}
+
+.wz-hero__inner h1 {
+  margin-top: var(--wz-space-3);
+  font-size: var(--wz-text-3xl);
+}
+
+.wz-hero__sub {
+  margin-top: var(--wz-space-4);
+  font-size: var(--wz-text-lg);
+  color: var(--wz-ink-soft);
+  line-height: 1.6;
+}
+
+.wz-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--wz-space-5);
+  margin-top: var(--wz-space-6);
+}
+
+.wz-hero__secondary {
+  font-size: var(--wz-text-sm);
+  font-weight: 500;
+  color: var(--wz-ink-soft);
+  transition: color var(--wz-duration) var(--wz-ease);
+}
+
+.wz-hero__secondary:hover {
+  color: var(--wz-primary);
+}
+
+/* --- Buttons (large variant, base .wz-btn from Header.css) --- */
+.wz-btn--lg {
+  padding: 0.8rem 1.6rem;
+  font-size: var(--wz-text-base);
+}
+
+/* --- Trust strip --- */
+.wz-trust {
+  background: var(--wz-primary-tint);
+  padding-block: var(--wz-space-5);
+}
+
+.wz-trust__row {
+  display: flex;
+  gap: var(--wz-space-8);
+}
+
+.wz-trust__item p {
+  margin-top: var(--wz-space-1);
+  font-size: var(--wz-text-sm);
+  color: var(--wz-ink);
+}
+
+/* --- Section shell --- */
+.wz-section {
+  padding-block: var(--wz-space-8);
+}
+
+.wz-section--tint {
+  background: var(--wz-surface);
+  border-block: 1px solid var(--wz-border);
+}
+
+.wz-section h2 {
+  margin-bottom: var(--wz-space-6);
+}
+
+/* --- Categories --- */
+.wz-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--wz-space-4);
+}
+
+.wz-category-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wz-space-2);
+  padding: var(--wz-space-5);
+  border: 1px solid var(--wz-border);
+  border-radius: var(--wz-radius-md);
+  transition: border-color var(--wz-duration) var(--wz-ease);
+}
+
+.wz-category-card:hover {
+  border-color: var(--wz-primary);
+}
+
+.wz-category-card h4 {
+  font-size: var(--wz-text-base);
+}
+
+.wz-category-card .wz-figure {
+  font-size: var(--wz-text-xs);
+}
+
+/* --- How it works --- */
+.wz-how {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--wz-space-8);
+}
+
+.wz-how__steps {
+  margin-top: var(--wz-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--wz-space-3);
+}
+
+.wz-how__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--wz-space-3);
+  font-size: var(--wz-text-sm);
+  padding-block: var(--wz-space-2);
+  border-bottom: 1px solid var(--wz-border);
+}
+
+.wz-how__steps .wz-figure {
+  color: var(--wz-primary);
+  font-size: var(--wz-text-xs);
+}
+
+/* --- Featured freelancers --- */
+.wz-freelancers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--wz-space-4);
+}
+
+.wz-freelancer-card {
+  padding: var(--wz-space-5);
+  border: 1px solid var(--wz-border);
+  border-radius: var(--wz-radius-md);
+  text-align: center;
+}
+
+.wz-freelancer-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--wz-primary-tint);
+  margin-inline: auto;
+  margin-bottom: var(--wz-space-3);
+}
+
+.wz-freelancer-card h4 {
+  font-size: var(--wz-text-base);
+}
+
+.wz-freelancer-card p {
+  font-size: var(--wz-text-sm);
+  margin-top: var(--wz-space-1);
+}
+
+.wz-freelancer-card__meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--wz-space-4);
+  margin-top: var(--wz-space-3);
+  font-size: var(--wz-text-sm);
+}
+
+/* --- Closing CTA --- */
+.wz-cta {
+  background: var(--wz-ink);
+  padding-block: var(--wz-space-8);
+}
+
+.wz-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wz-cta__inner h2 {
+  color: #FFFFFF;
+  margin-bottom: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 860px) {
+  .wz-categories,
+  .wz-freelancers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wz-how {
+    grid-template-columns: 1fr;
+    gap: var(--wz-space-6);
+  }
+
+  .wz-cta__inner {
+    flex-direction: column;
+    gap: var(--wz-space-4);
+    text-align: center;
+  }
+}

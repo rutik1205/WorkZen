@@ -1,0 +1,110 @@
+.wz-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--wz-bg);
+  border-bottom: 1px solid var(--wz-border);
+}
+
+.wz-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--wz-space-6);
+  height: 72px;
+}
+
+/* --- Brand --- */
+.wz-nav__brand h2 {
+  font-family: var(--wz-font-display);
+  font-size: var(--wz-text-xl);
+  font-weight: 600;
+  color: var(--wz-primary);
+  letter-spacing: -0.01em;
+}
+
+/* --- Links --- */
+.wz-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--wz-space-6);
+  flex: 1;
+  justify-content: center;
+}
+
+.wz-nav__links a {
+  position: relative;
+  font-size: var(--wz-text-sm);
+  font-weight: 500;
+  color: var(--wz-ink-soft);
+  padding-block: var(--wz-space-1);
+  transition: color var(--wz-duration) var(--wz-ease);
+}
+
+.wz-nav__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -1px;
+  height: 1.5px;
+  background: var(--wz-primary);
+  transition: right var(--wz-duration) var(--wz-ease);
+}
+
+.wz-nav__links a:hover {
+  color: var(--wz-ink);
+}
+
+.wz-nav__links a:hover::after {
+  right: 0;
+}
+
+/* --- Actions --- */
+.wz-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--wz-space-3);
+}
+
+.wz-btn {
+  font-size: var(--wz-text-sm);
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--wz-radius-md);
+  transition: background var(--wz-duration) var(--wz-ease),
+              color var(--wz-duration) var(--wz-ease),
+              border-color var(--wz-duration) var(--wz-ease);
+  white-space: nowrap;
+}
+
+.wz-btn--ghost {
+  color: var(--wz-ink);
+  border: 1px solid transparent;
+}
+
+.wz-btn--ghost:hover {
+  border-color: var(--wz-border-strong);
+}
+
+.wz-btn--primary {
+  background: var(--wz-primary);
+  color: var(--wz-bg);
+  border: 1px solid var(--wz-primary);
+}
+
+.wz-btn--primary:hover {
+  background: var(--wz-primary-hover);
+  border-color: var(--wz-primary-hover);
+}
+
+/* --- Responsive --- */
+@media (max-width: 860px) {
+  .wz-nav__links {
+    display: none;
+  }
+
+  .wz-nav {
+    height: 64px;
+  }
+}

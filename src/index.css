@@ -1,0 +1,186 @@
+/* =========================================================
+   WORKZEN — index.css
+   Base tokens, reset, and typography.
+   Theme: "Ledger" — paper, pine green, burnt amber.
+   ========================================================= */
+
+/* --- Fonts ---
+   Add these to your HTML <head>, or swap for @font-face/self-hosted:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+*/
+
+:root {
+  /* Color — Ledger palette */
+  --wz-bg:            #F7F6F2;  /* paper background */
+  --wz-surface:        #FFFFFF;  /* card / raised surface */
+  --wz-ink:            #1C1B19;  /* primary text */
+  --wz-ink-soft:        #6B675E;  /* secondary text */
+  --wz-border:          #DAD5C9;  /* hairline dividers */
+  --wz-border-strong:    #C7C1B2;  /* stronger hairline, e.g. table edges */
+
+  --wz-primary:         #2E5941;  /* deep pine green */
+  --wz-primary-hover:    #24472F;
+  --wz-primary-tint:     #E7EEE8;  /* pale green wash, badges/backgrounds */
+
+  --wz-accent:          #C9622A;  /* burnt amber — use sparingly */
+  --wz-accent-tint:      #FBEEE5;
+
+  --wz-success:         #2E5941;
+  --wz-warning:         #B9832C;
+  --wz-error:           #A8402F;
+
+  /* Typography */
+  --wz-font-display:    'Fraunces', Georgia, serif;
+  --wz-font-body:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --wz-font-mono:       'IBM Plex Mono', 'SFMono-Regular', monospace;
+
+  --wz-text-xs:         0.75rem;   /* 12px */
+  --wz-text-sm:         0.875rem;  /* 14px */
+  --wz-text-base:        1rem;      /* 16px */
+  --wz-text-lg:         1.125rem;  /* 18px */
+  --wz-text-xl:         1.5rem;    /* 24px */
+  --wz-text-2xl:         2rem;      /* 32px */
+  --wz-text-3xl:         2.75rem;  /* 44px */
+
+  /* Spacing scale (4px base) */
+  --wz-space-1:         0.25rem;
+  --wz-space-2:         0.5rem;
+  --wz-space-3:         0.75rem;
+  --wz-space-4:         1rem;
+  --wz-space-5:         1.5rem;
+  --wz-space-6:         2rem;
+  --wz-space-8:         3rem;
+  --wz-space-10:         4rem;
+
+  /* Radius — kept small, this is a ledger not a bubble UI */
+  --wz-radius-sm:        4px;
+  --wz-radius-md:        6px;
+  --wz-radius-lg:        10px;
+
+  /* Shadow — used rarely, mostly for modals/popovers */
+  --wz-shadow-sm:        0 1px 2px rgba(28, 27, 25, 0.06);
+  --wz-shadow-md:        0 4px 16px rgba(28, 27, 25, 0.08);
+
+  /* Motion */
+  --wz-ease:            cubic-bezier(0.4, 0, 0.2, 1);
+  --wz-duration:         160ms;
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--wz-bg);
+  color: var(--wz-ink);
+  font-family: var(--wz-font-body);
+  font-size: var(--wz-text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-family: var(--wz-font-display);
+  font-weight: 600;
+  color: var(--wz-ink);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--wz-text-3xl); }
+h2 { font-size: var(--wz-text-2xl); }
+h3 { font-size: var(--wz-text-xl); }
+h4 { font-size: var(--wz-text-lg); font-family: var(--wz-font-body); font-weight: 600; }
+
+p {
+  color: var(--wz-ink);
+}
+
+.wz-text-soft {
+  color: var(--wz-ink-soft);
+}
+
+/* Eyebrow / label style — used above headings, on metadata */
+.wz-eyebrow {
+  font-family: var(--wz-font-mono);
+  font-size: var(--wz-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wz-ink-soft);
+}
+
+/* Numeric / rate / price display */
+.wz-figure {
+  font-family: var(--wz-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Focus states (accessibility floor) --- */
+:focus-visible {
+  outline: 2px solid var(--wz-primary);
+  outline-offset: 2px;
+  border-radius: var(--wz-radius-sm);
+}
+
+/* --- Utility --- */
+.wz-container {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: var(--wz-space-5);
+}
+
+.wz-divider {
+  border: none;
+  border-top: 1px solid var(--wz-border);
+}
